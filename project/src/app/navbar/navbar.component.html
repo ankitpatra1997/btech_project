@@ -1,0 +1,27 @@
+<mat-toolbar fxLayout="row">
+
+  <div class="child" [routerLink]="['/dashboard']">Job Portal</div>
+
+  <div class="child">
+    <button mat-button [routerLink]="['/dashboard']">Home</button>
+  </div>
+  
+  <div class="child">
+    <button mat-button [routerLink]="['/aboutus']">About Us</button>
+  </div>
+
+  <button mat-icon-button [matMenuTriggerFor]="user_account">
+      <mat-icon aria-label="user_account" >account_circle</mat-icon></button>
+      <mat-menu #user_account="matMenu">
+          <button mat-menu-item [routerLink]="['/login']">Login</button>
+          <button mat-menu-item [matMenuTriggerFor]="register">Register</button>
+      </mat-menu>
+      <mat-menu #register="matMenu">
+          <button mat-menu-item [routerLink]="['/register/student-register']">Student</button>
+          <button mat-menu-item [routerLink]="['/register/company-register']">Company</button>
+      </mat-menu>
+    
+</mat-toolbar>
+
+
+

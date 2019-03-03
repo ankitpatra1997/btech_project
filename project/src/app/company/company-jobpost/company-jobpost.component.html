@@ -1,0 +1,48 @@
+<section class="card-style">
+  <mat-card class="example-card">
+    <h1>Post a New Job</h1>
+  </mat-card>
+</section>
+<mat-card>
+    <form [formGroup]="jobPost"  (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="companyid">
+      <mat-form-field>
+        <input matInput placeholder="Job Name" formControlName="name">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field>
+        <mat-select placeholder="Job Type" formControlName="type">
+          <mat-option value="Internship">Internship</mat-option>
+          <mat-option value="Full Time">Full Time</mat-option>
+          <mat-option value="Part Time">Part Time</mat-option>
+          <mat-option value="Contract">On Contract</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br><br>
+      <mat-form-field>
+        <input matInput placeholder="Job Location" formControlName="location">
+      </mat-form-field>
+      <br><br>
+     <mat-form-field>
+        <mat-select placeholder="Job Experience in years" formControlName="experience">
+          <mat-option value="Fresher">Fresher</mat-option>
+          <mat-option value="0-1 year">0-1</mat-option>
+          <mat-option value="2-3 year">2-3</mat-option>
+          <mat-option value="4-5 year">4-5</mat-option>
+          <mat-option value="5-6 year">5-6</mat-option>
+          <mat-option value=">6 year">>6</mat-option>
+        </mat-select>
+      </mat-form-field>
+        <br><br> 
+      <mat-form-field>
+        <input matInput placeholder="Salary In Rupees Per Annum" formControlName="salary">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field>
+        <textarea matInput placeholder="Job Description" formControlName="description"></textarea>
+      </mat-form-field>
+      <br><br>
+      <button mat-raised-button color="primary" type="submit">Post Job</button>
+    </form>
+  </mat-card>
+  

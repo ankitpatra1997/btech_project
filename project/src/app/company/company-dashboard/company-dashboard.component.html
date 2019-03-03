@@ -1,0 +1,47 @@
+<section class="card-style">
+    <mat-card class="example-card">
+      <h1>Company Dashboard</h1>
+    </mat-card>
+</section>
+<section class="card-style">
+<h3 style="text-align: center;">ALL JOB POSTS</h3>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+      
+        <!-- Job Title Column -->
+                <ng-container matColumnDef="jobtitle">
+                        <th mat-header-cell *matHeaderCellDef> Job Title</th>
+                        <td mat-cell *matCellDef="let element"> <a [routerLink]="['/company/viewjob']" >{{element.jobtitle}} </a></td> 
+                </ng-container>
+      
+        <!-- Date of posting Column -->
+                <ng-container matColumnDef="dateofposting">
+                        <th mat-header-cell *matHeaderCellDef> Date of Posting  </th>
+                        <td mat-cell *matCellDef="let element"> {{element.dateofposting}} </td>
+                </ng-container>
+      
+        <!-- No. of Applicants Column -->
+                <ng-container matColumnDef="applicants">
+                        <th mat-header-cell *matHeaderCellDef> No. of Applicants </th>
+                        <td mat-cell *matCellDef="let element"> {{element.applicants}} <a [routerLink]="['/company/viewapplicants']" >(view)</a></td>
+                </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</section>  
+      

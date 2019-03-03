@@ -1,0 +1,24 @@
+<mat-toolbar fxLayout="row">
+
+    <div class="child" [routerLink]="['/student/dashboard']">Job Portal</div>
+  
+    <div class="child">
+      <button mat-button [routerLink]="['/student/dashboard']">Home</button>
+    </div>
+    
+    <div class="child">
+      <button mat-button>Jobs Applied</button>
+    </div>
+  
+    <button mat-icon-button [matMenuTriggerFor]="user_account">
+        <mat-icon aria-label="user_account" >account_circle</mat-icon></button>
+        <mat-menu #user_account="matMenu"> 
+            <button mat-menu-item [routerLink]="['/student/profile']">Profile</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+        
+  </mat-toolbar>
+  
+  
+  
+  
