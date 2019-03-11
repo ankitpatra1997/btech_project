@@ -14,6 +14,10 @@ const schema = new Schema({
         type: String, 
         required: true
     },
+    qualification:{
+        type: String,
+        required: true
+    },
     location:{
         type: String, 
         required: true

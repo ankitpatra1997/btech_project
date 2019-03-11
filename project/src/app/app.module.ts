@@ -25,10 +25,12 @@ import { CompanyViewApplicantsComponent } from './company/company-view-applicant
 import { CompanyViewJobComponent } from './company/company-viewjob/company-viewjob.component';
 import { UserService } from './user.service';
 import { JobPostService } from './jobpost.service';
+import { DashboardService } from './dashboard.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentRegisterComponent } from './register/student-register/student-register.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 import { StudentProfileComponent } from './student/student-profile/student-profile.component';
+import { StudentViewJobComponent } from './student/student-viewjob/student-viewjob.component';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { StudentProfileComponent } from './student/student-profile/student-profi
     StudentDashboardComponent,
     StudentNavbarComponent,
     CompanyNavbarComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    StudentViewJobComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,7 @@ import { StudentProfileComponent } from './student/student-profile/student-profi
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService, JobPostService],
+  providers: [UserService, JobPostService, DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

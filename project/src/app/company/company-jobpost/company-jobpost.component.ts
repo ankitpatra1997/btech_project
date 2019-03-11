@@ -19,6 +19,7 @@ export class CompanyJobpostComponent implements OnInit {
       'companyid': new FormControl(localStorage.getItem("uid")),
       'name': new FormControl(null, Validators.required),
       'type': new FormControl(null, Validators.required),
+      'qualification': new FormControl(null, Validators.required),
       'location': new FormControl(null, Validators.required),
       'salary': new FormControl(null, Validators.required),
       'experience': new FormControl(null, Validators.required),

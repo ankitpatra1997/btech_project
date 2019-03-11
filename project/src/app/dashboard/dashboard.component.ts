@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { DashboardService } from '../dashboard.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +9,21 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private _user:UserService, private _router: Router) {
+  jobData: any = {};
+  constructor(private _dashboard:DashboardService, private _router: Router) {
     // this._user.user()
     //   .subscribe(
     //     data => console.log(data),
     //     err => this._router.navigate(['/login'])
     //   )
+    let selfIns = this;
+    this._dashboard.getJob().subscribe(
+      data => {
+        console.log(data);
+            selfIns.jobData = data;
+        },
+      err => console.log(err) 
+    )
   }
 
   ngOnInit() {

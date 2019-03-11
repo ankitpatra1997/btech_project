@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
       this._user.login(JSON.stringify(this.loginForm.value))
         .subscribe(
           (data: any) => {
-            debugger;
             localStorage.setItem("uid",data._id);
             if(data.typeOfUser == "student") 
               this._router.navigate(['/student/dashboard']);

@@ -44,6 +44,36 @@
                     </div>
                   </form>
                 </mat-step>
+                <mat-step [stepControl]="thirdFormGroup">
+                  <form [formGroup]="thirdFormGroup">
+                    <ng-template matStepLabel>Educational Details</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="10th Board" formControlName="tenthBoard" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="percentage secured" formControlName="tenthPercentage" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Year of pass out" formControlName="tenthYop" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-select placeholder="Select intermediate education" formControlName="intermediateEducation">
+                        <mat-option value="12th">12th</mat-option>
+                        <mat-option value="Diploma">Diploma</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="percentage secured" formControlName="intermediatePercentage" required>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Year of pass out" formControlName="intermediateYop" required>
+                      </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
                 <mat-step>
                   <ng-template matStepLabel>Done</ng-template>
                   You are now done.

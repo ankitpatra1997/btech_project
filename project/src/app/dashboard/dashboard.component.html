@@ -6,32 +6,36 @@
 </section>
 <section class="card-style">
 
-  <mat-card class="example-card">
+  <mat-card *ngFor="let job of jobData; let i = index" class="example-card">
 
     <mat-card-header>
       <mat-card-title>Job Name:</mat-card-title>
-      <mat-card-subtitle>Mean Stack Developer</mat-card-subtitle>
+      <mat-card-subtitle>{{job.name}}</mat-card-subtitle>
     </mat-card-header>
-  
+
     <mat-card-header>
       <mat-card-title>Job Location:</mat-card-title>
-      <mat-card-subtitle>Bhubaneswar/Bangalore</mat-card-subtitle>
+      <mat-card-subtitle>{{job.location}}</mat-card-subtitle>
     </mat-card-header>
-  
+
     <mat-card-header>
       <mat-card-title>Job Experience:</mat-card-title>
-      <mat-card-subtitle>Fresher/2-3 yr.</mat-card-subtitle>
+      <mat-card-subtitle>{{job.experience}}</mat-card-subtitle>
     </mat-card-header>
-  
+
     <mat-card-header>
-      <mat-card-title>Salary:</mat-card-title>
-      <mat-card-subtitle>Rs.3,00,000 /year</mat-card-subtitle>
+      <mat-card-title>Job Salary:</mat-card-title>
+      <mat-card-subtitle>{{job.salary}}</mat-card-subtitle>
     </mat-card-header>
-  
-    <mat-card-actions>
-      <button mat-raised-button color="primary" [routerLink]="['view']">View More</button>
-    </mat-card-actions>
     
+    <mat-card-header>
+      <mat-card-title>Job Posted By:</mat-card-title>
+      <mat-card-subtitle>{{job.companyData[0].name}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['view', job._id]">View More</button>
+    </mat-card-actions>
   </mat-card>
 
 </section>

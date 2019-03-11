@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../../dashboard.service';
 
 @Component({
-  selector: 'app-company-viewjob',
-  templateUrl: './company-viewjob.component.html',
-  styleUrls: ['./company-viewjob.component.css']
+  selector: 'app-student-viewjob',
+  templateUrl: './student-viewjob.component.html',
+  styleUrls: ['./student-viewjob.component.css']
 })
-export class CompanyViewJobComponent implements OnInit {
+export class StudentViewJobComponent implements OnInit {
 
   getId(){
     return window.location.href.split("viewjob/")[1];

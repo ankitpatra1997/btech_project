@@ -10,6 +10,7 @@ export class StudentProfileComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}
 
@@ -25,6 +26,14 @@ export class StudentProfileComponent implements OnInit {
       houseno: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      tenthBoard: ['',Validators.required],
+      tenthPercentage: ['',Validators.required],
+      tenthYop: ['',Validators.required],
+      intermediateEducation:['',Validators.required],
+      intermediatePercentage :['',Validators.required],
+      intermediateYop :['',Validators.required],
     });
   }
 }

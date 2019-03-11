@@ -15,6 +15,7 @@ import { StudentProfileComponent } from './student/student-profile/student-profi
 import { CompanyJobpostComponent } from './company/company-jobpost/company-jobpost.component';
 import { CompanyViewApplicantsComponent } from './company/company-view-applicants/company-view-applicants.component';
 import { CompanyViewJobComponent } from './company/company-viewjob/company-viewjob.component';
+import { StudentViewJobComponent } from './student/student-viewjob/student-viewjob.component';
 import { from } from 'rxjs';
 
 
@@ -22,16 +23,17 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aboutus', component: AboutusComponent },
-  { path: 'dashboard/view', component: ViewComponent, pathMatch: 'full' },
+  { path: 'dashboard/view/:id', component: ViewComponent, pathMatch: 'full' },
   { path: 'company', component: CompanyComponent, children: [
     { path: 'dashboard', component: CompanyDashboardComponent, pathMatch: 'full' },
     { path: 'jobpost', component: CompanyJobpostComponent, pathMatch: 'full' },
     { path: 'viewapplicants', component: CompanyViewApplicantsComponent, pathMatch: 'full'},
-    { path: 'viewjob', component: CompanyViewJobComponent, pathMatch: 'full'}
+    { path: 'viewjob/:id', component: CompanyViewJobComponent, pathMatch: 'full'}
   ] },
   { path: 'student', component: StudentComponent, children: [
     { path: 'dashboard', component: StudentDashboardComponent, pathMatch: 'full' },
-    { path: 'profile', component: StudentProfileComponent, pathMatch: 'full' }
+    { path: 'profile', component: StudentProfileComponent, pathMatch: 'full' },
+    { path: 'viewjob/:id', component: StudentViewJobComponent, pathMatch: 'full'}
   ] },
   { path: 'register', component: RegisterComponent, children: [
     { path: 'student-register', component: StudentRegisterComponent, pathMatch: 'full' },

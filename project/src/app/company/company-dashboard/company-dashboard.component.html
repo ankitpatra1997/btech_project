@@ -10,28 +10,23 @@
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
       
-        <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                        <th mat-header-cell *matHeaderCellDef> No. </th>
-                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
-      
+        
         <!-- Job Title Column -->
                 <ng-container matColumnDef="jobtitle">
                         <th mat-header-cell *matHeaderCellDef> Job Title</th>
-                        <td mat-cell *matCellDef="let element"> <a [routerLink]="['/company/viewjob']" >{{element.jobtitle}} </a></td> 
+                        <td mat-cell *matCellDef="let element"> <a [routerLink]="['/company/viewjob',element._id]" >{{element.name}} </a></td> 
                 </ng-container>
       
         <!-- Date of posting Column -->
                 <ng-container matColumnDef="dateofposting">
                         <th mat-header-cell *matHeaderCellDef> Date of Posting  </th>
-                        <td mat-cell *matCellDef="let element"> {{element.dateofposting}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.dateOfPosting.substr(0,10)}} </td>
                 </ng-container>
       
         <!-- No. of Applicants Column -->
                 <ng-container matColumnDef="applicants">
                         <th mat-header-cell *matHeaderCellDef> No. of Applicants </th>
-                        <td mat-cell *matCellDef="let element"> {{element.applicants}} <a [routerLink]="['/company/viewapplicants']" >(view)</a></td>
+                        <td mat-cell *matCellDef="let element"> {{element.applicants.length}} <a [routerLink]="['/company/viewapplicants']" >(view)</a></td>
                 </ng-container>
 
         <!-- Status Column -->
