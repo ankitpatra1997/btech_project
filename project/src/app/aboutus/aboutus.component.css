@@ -9,9 +9,13 @@
     width: 70%;
     margin: auto;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 100px;
     flex: 1 1 auto;
   }
 
-
+  .bgimg{
+    height:41em; background-size:cover; width:auto;
+    background-image:url('https://www.celeritytelecom.com/wp-content/uploads/2016/01/Contact-Us-background-1920x1080.jpg');
+    background-position:50% 50%;
+  }
   

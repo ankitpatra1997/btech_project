@@ -18,6 +18,11 @@ export class LoginComponent implements OnInit {
   
   loginForm: FormGroup;
 
+/*  getUrl()
+{
+  return "url('http://blog.hostbaby.com/wp-content/uploads/2014/03/Trees_1920x1234.png')";
+} */
+
   submit(){
     if(this.loginForm.valid){
      console.log(this.loginForm.value);
