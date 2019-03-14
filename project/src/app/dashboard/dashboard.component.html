@@ -5,9 +5,9 @@
     </mat-card>
 </section>
 <section class="card-style">
-
-  <mat-card *ngFor="let job of jobData; let i = index" class="example-card">
-
+  <div *ngFor="let job of jobData; let i = index"   >
+  <mat-card *ngIf="job.status=='active'" class="example-card">
+ 
     <mat-card-header>
       <mat-card-title>Job Name:</mat-card-title>
       <mat-card-subtitle>{{job.name}}</mat-card-subtitle>
@@ -36,6 +36,7 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" [routerLink]="['view', job._id]">View More</button>
     </mat-card-actions>
-  </mat-card>
 
+  </mat-card>
+</div>
 </section>

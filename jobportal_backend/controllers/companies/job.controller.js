@@ -4,8 +4,8 @@ const jobService = require('../../services/companies/job.service');
 
 // routes
 router.post('/:cid/job/add', addJob);
-router.post('/:cid/job/:jid/update', updateJob);
-router.delete('/:cid/job/:jid', deleteJob);
+router.put('/job/:jid',updateJob);
+router.delete('/job/:jid', deleteJob);
 router.get('/jobs', getJobs);
 router.get('/:cid/job',getCompanyJobs);
 router.get('/job/:id',getJobById);

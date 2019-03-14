@@ -14,7 +14,8 @@ import { MatDatepickerModule,
         MatDividerModule,
         MatListModule,
         MatTableModule,
-        MatTabsModule
+        MatTabsModule,
+        MatSlideToggleModule
  } from '@angular/material'
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatDatepickerModule,
     MatDividerModule,
     MatListModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSlideToggleModule
 
 
 
@@ -55,7 +57,8 @@ import { MatDatepickerModule,
     MatDividerModule,
     MatListModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSlideToggleModule
 
   ],
   declarations: []
