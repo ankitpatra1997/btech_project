@@ -3,17 +3,18 @@ const router = express.Router();
 const appService = require('../../services/applications/application.service');
 
 // routes
-router.post('/student/:sid/application/add', applyJob);
-router.post('/student/:sid/application/:aid/update', updateStatus);
-router.delete('/student/:sid/application/:aid', deleteApp);
-router.get('/student/:sid/application', getApplications);
+
+router.post('/:sid/application/add', applyJob);
+router.put('/:sid/application/:aid/update', updateStatus);
+router.delete('/:sid/application/:aid', deleteApp);
+router.get('/:sid/application', getApplications);
 
 module.exports = router;
 
 function applyJob(req, res, next) {
     appService.create(req.params.sid, req.body)
         .then(() => res.status(200).json({
-            status: success
+            status: "success"
         }))
         .catch(err => next(err));
 }
