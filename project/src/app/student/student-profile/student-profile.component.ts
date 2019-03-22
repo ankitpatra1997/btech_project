@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { UserService } from '../../user.service';
+import { StudentService } from '../../student.service';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-student-profile',
@@ -11,21 +15,35 @@ export class StudentProfileComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  userData: any = {};
+  constructor(private _formBuilder: FormBuilder,private _userService: UserService, private _http:HttpClient) 
+  {
+    let selfIns = this;
+    this._userService.getUserById().subscribe(
+      data => {
+        console.log(data);
+            selfIns.userData = data;
+        },
+      err => console.log(err) 
+    )
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      phone: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      dob: ['', Validators.required],
+      
+      phone: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
       address: ['', Validators.required],
-      houseno: ['', Validators.required],
+      houseNo: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required]
+      
     });
     this.thirdFormGroup = this._formBuilder.group({
       tenthBoard: ['',Validators.required],
@@ -34,6 +52,47 @@ export class StudentProfileComponent implements OnInit {
       intermediateEducation:['',Validators.required],
       intermediatePercentage :['',Validators.required],
       intermediateYop :['',Validators.required],
+      graduationDegree :['',Validators.required],
+      graduationStream :['',Validators.required],
+      graduationCgpa :['',Validators.required],
+      GraduationYop :['',Validators.required],
+    });
+
+    this.fourthFormGroup = this._formBuilder.group({
+      resume: ['',Validators.required],
     });
   }
+
+  form1(){
+    console.log(this.firstFormGroup.value);
+  }
+
+  form2(){
+    console.log(this.secondFormGroup.value);
+    this._userService.updateUser(JSON.stringify({PersonalDetails:this.secondFormGroup.value}))
+    .subscribe(
+      data => {console.log(data);},
+      err => {console.error(err);}
+    )
+  }
+
+  form3(){
+    console.log(this.thirdFormGroup.value);
+  }
+
+  form4(){
+    console.log(this.fourthFormGroup.value);
+  }
+
+  postMethod(files: FileList) {
+    let fileToUpload = files.item(0); 
+    let formData = new FormData(); 
+    formData.append('file', fileToUpload, fileToUpload.name); 
+    this._http.put(`http://127.0.0.1:4000/uploads`, formData).subscribe((val) => {
+    
+    console.log(val);
+    });
+    return false; 
+    }
+
 }

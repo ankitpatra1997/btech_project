@@ -18,6 +18,7 @@ app.use(cors());
 app.use('/users', require('./controllers/users/user.controller'));
 app.use('/company', require('./controllers/companies/job.controller'));
 app.use('/student', require('./controllers/applications/application.controller'));
+app.use('/student', require('./controllers/students/personalDetails.controller'));
 
 // Upload Files
 app.use(fileUpload());

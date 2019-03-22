@@ -4,14 +4,15 @@ const Student = db.Student;
 module.exports = {
     create,
     update,
-    getById,
-    getData,
+  //  getById,
+   // getData,
     delete: _delete
 };
 
-async function create(studentParam) {
+async function create(studentID, studentParam) {
     
     const student = new Student(studentParam);
+    student.studentID = studentID;
     if (await Student.findOne({ phone: studentParam.phone })) {
         throw "The Phone " + studentParam.phone + " is already taken";
     }

@@ -29,4 +29,15 @@ export class UserService {
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
   }
+
+  getUserById() {
+    return this._http.get(`http://127.0.0.1:4000/users/${localStorage.getItem("uid")}`)
+  }
+
+  updateUser(body: any){
+    return this._http.put(`http://127.0.0.1:4000/users/${localStorage.getItem("uid")}`, body, {
+      observe: 'body',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    });
+  }
 }

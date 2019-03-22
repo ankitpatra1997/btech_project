@@ -2,16 +2,13 @@
 <mat-card>
         <mat-vertical-stepper [linear]="isLinear" #stepper>
                 <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup" (ngSubmit)="form1()" #formone="ngForm">
                     <ng-template matStepLabel>Basic Details</ng-template>
                     <mat-form-field>
-                        <input matInput placeholder="Full Name" formControlName="name" required>
+                        <input matInput placeholder="Full Name" [(ngModel)]="userData.name" formControlName="name" required>
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="Email" formControlName="email" required>
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput placeholder="Phone Number" formControlName="phone" required>
+                      <input matInput placeholder="Email" [(ngModel)]="userData.email" formControlName="email" required>
                     </mat-form-field>
                     <div>
                       <button mat-button matStepperNext>Next</button>
@@ -19,24 +16,27 @@
                   </form>
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup">
-                  <form [formGroup]="secondFormGroup">
+                  <form [formGroup]="secondFormGroup" (ngSubmit)="form2()" #formtwo="ngForm">
                     <ng-template matStepLabel>Personal Details</ng-template>
                     <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Select Date of Birth" formControlName="dob" required>
+                        <input matInput [matDatepicker]="picker" placeholder="Select Date of Birth"  formControlName="dateOfBirth"  [(ngModel)]="userData.PersonalDetails.dateOfBirth" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="House No." formControlName="houseno" required>
+                      <input matInput placeholder="Phone Number" formControlName="phone"  [(ngModel)]="userData.PersonalDetails.phone" required>
                     </mat-form-field>
                     <mat-form-field>
-                            <input matInput placeholder="Address" formControlName="address" required>
+                      <input matInput placeholder="House No." formControlName="houseNo"  [(ngModel)]="userData.PersonalDetails.houseNo" required>
                     </mat-form-field>
                     <mat-form-field>
-                            <input matInput placeholder="City" formControlName="city" required>
+                            <input matInput placeholder="Address" formControlName="address"  [(ngModel)]="userData.PersonalDetails.address" required>
                     </mat-form-field>
                     <mat-form-field>
-                            <input matInput placeholder="State" formControlName="state" required>
+                            <input matInput placeholder="City" formControlName="city"  [(ngModel)]="userData.PersonalDetails.city" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                            <input matInput placeholder="State" formControlName="state"  [(ngModel)]="userData.PersonalDetails.state" required>
                     </mat-form-field>
                     <div>
                       <button mat-button matStepperPrevious>Back</button>
@@ -45,7 +45,7 @@
                   </form>
                 </mat-step>
                 <mat-step [stepControl]="thirdFormGroup">
-                  <form [formGroup]="thirdFormGroup">
+                  <form [formGroup]="thirdFormGroup" (ngSubmit)="form3()" #formthree="ngForm">
                     <ng-template matStepLabel>Educational Details</ng-template>
                     <mat-form-field>
                         <input matInput placeholder="10th Board" formControlName="tenthBoard" required>
@@ -68,6 +68,20 @@
                       <mat-form-field>
                         <input matInput placeholder="Year of pass out" formControlName="intermediateYop" required>
                       </mat-form-field>
+
+                      <mat-form-field>
+                          <input matInput placeholder="Graduation Degree e.g. B.tech" formControlName="graduationDegree" required>
+                      </mat-form-field>
+                      <mat-form-field>
+                          <input matInput placeholder="Stream of Graduation e.g. CSE / ECE / HR" formControlName="graduationStream" required>
+                      </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="CGPA Secured" formControlName="graduationCgpa" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="Graduation Year of Passing Out" formControlName="GraduationYop" required>
+                        </mat-form-field>
+
                     <div>
                         <button mat-button matStepperPrevious>Back</button>
                         <button mat-button matStepperNext>Next</button>
@@ -79,6 +93,7 @@
                   You are now done.
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button type="button" (click)="formone.ngSubmit.emit();formtwo.ngSubmit.emit()">Submit</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>
                   </div>
                 </mat-step>

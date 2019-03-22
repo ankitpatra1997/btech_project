@@ -2,10 +2,7 @@ const db = require("../../helpers/db");
 var async = require('async');
 const Job = db.Job;
 const User = db.User;
-const {
-    promisify
-} = require('util');
-const Application = promisify(db.Application);
+const Application = db.Application;
 
 module.exports = {
     create,
@@ -13,7 +10,8 @@ module.exports = {
     delete: _delete,
     getJobs: getJobs,
     getCompanyJobs: getCompanyJobs,
-    getJobById : getJobById
+    getJobById : getJobById,
+    getApplicantsByJOB : getApplicantsByJOB
 };
 
 async function create(companyID, jobParam) {
@@ -24,6 +22,23 @@ async function create(companyID, jobParam) {
     // save Company
     await job.save();
 
+}
+
+async function getApplicantsByJOB(jid) {
+    try {
+        await Application.find({
+            "jobID": jid
+        }, function (err, res) {
+            if (err) {
+                console.log(err);
+                return [];
+            } else {
+                return res;
+            }
+        });
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 async function getApplicants(cid) {

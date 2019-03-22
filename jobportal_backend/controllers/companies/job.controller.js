@@ -9,12 +9,19 @@ router.delete('/job/:jid', deleteJob);
 router.get('/jobs', getJobs);
 router.get('/:cid/job',getCompanyJobs);
 router.get('/job/:id',getJobById);
+router.get('/applicants/:jid',getApplicantsByJOB);
 
 module.exports = router;
 
 function getJobById(req, res, next) {
     jobService.getJobById(req.params.id).then(job => res.json(job))
     .catch(err => next(err));
+}
+
+function getApplicantsByJOB(req, res, next) {
+    jobService.getApplicantsByJOB(req.params.jid)
+        .then(job => res.json(job))
+        .catch(err =>  (err));
 }
 
 function getJobs(req, res, next) {

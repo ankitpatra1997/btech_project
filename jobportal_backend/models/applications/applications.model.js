@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
 	applicantName:{
         type: String, 
-        required: true
+        required: false
     },
     applicantID:{
         type: String, 

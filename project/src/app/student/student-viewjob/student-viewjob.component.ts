@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DashboardService } from '../../dashboard.service';
+import { StudentService } from '../../student.service';
 
 @Component({
   selector: 'app-student-viewjob',
@@ -14,8 +16,9 @@ export class StudentViewJobComponent implements OnInit {
   }
 
   jobData: any = {};
+  applyjob: FormGroup;
 
-    constructor(private _dashboard:DashboardService, private route: ActivatedRoute) { 
+    constructor(private _dashboard:DashboardService, private route: ActivatedRoute, private _studentService:StudentService) { 
 
       console.log("id =", this.getId());
       let selfIns = this;
@@ -23,11 +26,28 @@ export class StudentViewJobComponent implements OnInit {
       data => {
         console.log(data);
             selfIns.jobData = data;
+            console.log("Company id =",this.jobData.companyID);
+            selfIns.applyjob = new FormGroup({
+              'jobID': new FormControl(selfIns.getId()),
+              'companyID': new FormControl(this.jobData.companyID)
+            });
+            debugger;
         },
       err => console.log(err) 
     )
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
 
+      
+    }
+
+    applyJob()
+    {
+      this._studentService.applyJob(JSON.stringify(this.applyjob.value))
+      .subscribe(
+        data => {console.log(data);alert("Applied Successfully !") ; },
+        err => {console.error(err);}
+      )
+    }
 }

@@ -26,6 +26,7 @@ import { CompanyViewJobComponent } from './company/company-viewjob/company-viewj
 import { UserService } from './user.service';
 import { JobPostService } from './jobpost.service';
 import { DashboardService } from './dashboard.service';
+import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentRegisterComponent } from './register/student-register/student-register.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
@@ -66,7 +67,7 @@ import { StudentViewJobComponent } from './student/student-viewjob/student-viewj
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService, JobPostService, DashboardService],
+  providers: [UserService, JobPostService, DashboardService, StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

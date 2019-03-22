@@ -3,16 +3,22 @@ const router = express.Router();
 const studentService = require('../../services/students/personalDetails.service');
 
 // routes
-router.post('/student/add', addStudent);
-router.post('/student/:sid/update', updateStudent);
+router.post('/:sid/add', addStudent);
+router.put('/student/:sid/update', updateStudent);
+router.get('/student/:sid', getStudentDetailById);
 router.delete('/student/:sid', deleteStudent);
 
 module.exports = router;
 
+function getStudentDetailById(req,res,next)
+{
+    studentService.getStudentDetailById(req.params.sid).then(job => res.json(personaldetails))
+    .catch(err => next(err));
+}
 function addStudent(req, res, next) {
-    studentService.create(req.body)
+    studentService.create(req.params.sid, req.body)
         .then(() => res.status(200).json({
-            status: success
+            status: "success"
         }))
         .catch(err => next(err));
 }

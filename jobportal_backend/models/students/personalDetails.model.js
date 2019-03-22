@@ -8,39 +8,39 @@ const schema = new Schema({
     },
 	phone: {
         type: String,
-        required: true
+        required: false
     },
     skills: {
         type: Array,
-        required: true
+        required: false
     },
     photo: {
         type: String,
-        required: true
+        required: false
     },
     resume: {
         type: String,
-        required: true
+        required: false
     },
     dob: {
         type: String,
-        required: true
+        required: false
     },
     houseNo: {
         type: String,
-        required: true
+        required: false
     },
     address: {
         type: String,
-        required: true
+        required: false
     },
     city: {
         type: String,
-        required: true
+        required: false
     },
     state: {
         type: String,
-        required: true
+        required: false
     }
 });
 
