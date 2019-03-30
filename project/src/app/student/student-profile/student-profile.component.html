@@ -48,38 +48,41 @@
                   <form [formGroup]="thirdFormGroup" (ngSubmit)="form3()" #formthree="ngForm">
                     <ng-template matStepLabel>Educational Details</ng-template>
                     <mat-form-field>
-                        <input matInput placeholder="10th Board" formControlName="tenthBoard" required>
+                        <input matInput placeholder="10th Board" formControlName="Tenthboard" [(ngModel)]="userData.EducationalDetails.Tenthboard" required>
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="percentage secured" formControlName="tenthPercentage" required>
+                      <input matInput placeholder="percentage secured" formControlName="Tenthpercentage" [(ngModel)]="userData.EducationalDetails.Tenthpercentage" required>
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="Year of pass out" formControlName="tenthYop" required>
+                      <input matInput placeholder="Year of pass out" formControlName="TenthYOP" [(ngModel)]="userData.EducationalDetails.TenthYOP" required>
                     </mat-form-field>
                     <mat-form-field>
-                      <mat-select placeholder="Select intermediate education" formControlName="intermediateEducation">
+                      <mat-select placeholder="Select intermediate education" formControlName="intermediateEducation" [(ngModel)]="userData.EducationalDetails.intermediateEducation">
                         <mat-option value="12th">12th</mat-option>
                         <mat-option value="Diploma">Diploma</mat-option>
                       </mat-select>
                     </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Intermediate Board" formControlName="intermediateBoard" [(ngModel)]="userData.EducationalDetails.intermediateBoard" required>
+                    </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="percentage secured" formControlName="intermediatePercentage" required>
+                        <input matInput placeholder="percentage secured" formControlName="intermediatePercentage" [(ngModel)]="userData.EducationalDetails.intermediatePercentage" required>
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="Year of pass out" formControlName="intermediateYop" required>
+                        <input matInput placeholder="Year of pass out" formControlName="intermediateYop" [(ngModel)]="userData.EducationalDetails.intermediateYop" required>
                       </mat-form-field>
 
                       <mat-form-field>
-                          <input matInput placeholder="Graduation Degree e.g. B.tech" formControlName="graduationDegree" required>
+                          <input matInput placeholder="Graduation Degree e.g. B.tech" formControlName="GraduationDegree" [(ngModel)]="userData.EducationalDetails.GraduationDegree" required>
                       </mat-form-field>
                       <mat-form-field>
-                          <input matInput placeholder="Stream of Graduation e.g. CSE / ECE / HR" formControlName="graduationStream" required>
+                          <input matInput placeholder="Stream of Graduation e.g. CSE / ECE / HR" formControlName="Graduationstream" [(ngModel)]="userData.EducationalDetails.Graduationstream" required>
                       </mat-form-field>
                         <mat-form-field>
-                          <input matInput placeholder="CGPA Secured" formControlName="graduationCgpa" required>
+                          <input matInput placeholder="CGPA Secured" formControlName="Graduationcgpa" [(ngModel)]="userData.EducationalDetails.Graduationcgpa" required>
                         </mat-form-field>
                         <mat-form-field>
-                          <input matInput placeholder="Graduation Year of Passing Out" formControlName="GraduationYop" required>
+                          <input matInput placeholder="Graduation Year of Passing Out" formControlName="GraduationYOP" [(ngModel)]="userData.EducationalDetails.GraduationYOP" required>
                         </mat-form-field>
 
                     <div>
@@ -93,7 +96,7 @@
                   You are now done.
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button type="button" (click)="formone.ngSubmit.emit();formtwo.ngSubmit.emit()">Submit</button>
+                    <button mat-button type="button" (click)="formone.ngSubmit.emit();formtwo.ngSubmit.emit();formthree.ngSubmit.emit()">Submit</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>
                   </div>
                 </mat-step>

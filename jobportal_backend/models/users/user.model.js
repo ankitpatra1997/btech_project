@@ -45,22 +45,40 @@ const schema = new Schema({
 			required: false
 		},
 
-		Twelveboard: {
+		intermediateEducation: {
 			type: String,
 			required: false
 		},
 
-		TwelveYOP: {
+		intermediateBoard: {
 			type: String,
 			required: false
 		},
 
-		Twelvepercentage: {
+		intermediateYop: {
 			type: String,
 			required: false
 		},
-
-
+		intermediatePercentage: {
+			type: String,
+			required: false
+		},
+		GraduationDegree: {
+			type: String,
+			required: false
+		},
+		Graduationstream: {
+			type: String,
+			required: false
+		},
+		Graduationcgpa: {
+			type: String,
+			required: false
+		},
+		GraduationYOP: {
+			type: String,
+			required: false
+		}
 	},
 
 	PersonalDetails: {

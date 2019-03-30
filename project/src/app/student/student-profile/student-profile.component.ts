@@ -46,16 +46,17 @@ export class StudentProfileComponent implements OnInit {
       
     });
     this.thirdFormGroup = this._formBuilder.group({
-      tenthBoard: ['',Validators.required],
-      tenthPercentage: ['',Validators.required],
-      tenthYop: ['',Validators.required],
+      Tenthboard: ['',Validators.required],
+      TenthYOP: ['',Validators.required],
+      Tenthpercentage: ['',Validators.required],
       intermediateEducation:['',Validators.required],
-      intermediatePercentage :['',Validators.required],
+      intermediateBoard:['',Validators.required],
       intermediateYop :['',Validators.required],
-      graduationDegree :['',Validators.required],
-      graduationStream :['',Validators.required],
-      graduationCgpa :['',Validators.required],
-      GraduationYop :['',Validators.required],
+      intermediatePercentage :['',Validators.required],
+      GraduationDegree :['',Validators.required],
+      Graduationstream :['',Validators.required],
+      Graduationcgpa :['',Validators.required],
+      GraduationYOP :['',Validators.required],
     });
 
     this.fourthFormGroup = this._formBuilder.group({
@@ -78,6 +79,11 @@ export class StudentProfileComponent implements OnInit {
 
   form3(){
     console.log(this.thirdFormGroup.value);
+    this._userService.updateUser(JSON.stringify({EducationalDetails:this.thirdFormGroup.value}))
+    .subscribe(
+      data => {console.log(data);},
+      err => {console.error(err);}
+    )
   }
 
   form4(){

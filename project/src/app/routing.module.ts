@@ -16,6 +16,7 @@ import { CompanyJobpostComponent } from './company/company-jobpost/company-jobpo
 import { CompanyViewApplicantsComponent } from './company/company-view-applicants/company-view-applicants.component';
 import { CompanyViewJobComponent } from './company/company-viewjob/company-viewjob.component';
 import { StudentViewJobComponent } from './student/student-viewjob/student-viewjob.component';
+import { StudentAppliedJobsComponent } from './student/student-appliedjobs/student-appliedjobs.component';
 import { from } from 'rxjs';
 
 
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
   { path: 'student', component: StudentComponent, children: [
     { path: 'dashboard', component: StudentDashboardComponent, pathMatch: 'full' },
     { path: 'profile', component: StudentProfileComponent, pathMatch: 'full' },
-    { path: 'viewjob/:id', component: StudentViewJobComponent, pathMatch: 'full'}
+    { path: 'viewjob/:id', component: StudentViewJobComponent, pathMatch: 'full'},
+    { path: 'viewAppliedJobs', component: StudentAppliedJobsComponent, pathMatch: 'full'}
   ] },
   { path: 'register', component: RegisterComponent, children: [
     { path: 'student-register', component: StudentRegisterComponent, pathMatch: 'full' },

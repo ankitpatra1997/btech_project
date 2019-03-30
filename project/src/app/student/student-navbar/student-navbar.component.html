@@ -1,13 +1,13 @@
 <mat-toolbar color="primary" fxLayout="row">
 
-    <div class="child" [routerLink]="['/student/dashboard']">Job Portal</div>
+    <div class="child" [routerLink]="['/student/dashboard']">Online Recruitment System</div>
   
     <div class="child">
       <button mat-button [routerLink]="['/student/dashboard']">Home</button>
     </div>
     
     <div class="child">
-      <button mat-button>Jobs Applied</button>
+      <button mat-button [routerLink]="['/student/viewAppliedJobs']">Jobs Applied</button>
     </div>
   
     <button mat-icon-button [matMenuTriggerFor]="user_account">

@@ -32,6 +32,7 @@ import { StudentRegisterComponent } from './register/student-register/student-re
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 import { StudentProfileComponent } from './student/student-profile/student-profile.component';
 import { StudentViewJobComponent } from './student/student-viewjob/student-viewjob.component';
+import { StudentAppliedJobsComponent } from './student/student-appliedjobs/student-appliedjobs.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { StudentViewJobComponent } from './student/student-viewjob/student-viewj
     StudentNavbarComponent,
     CompanyNavbarComponent,
     StudentProfileComponent,
-    StudentViewJobComponent
+    StudentViewJobComponent,
+    StudentAppliedJobsComponent
   ],
   imports: [
     BrowserModule,
